@@ -501,7 +501,7 @@ function PhaseNav({
 }: {
   scrollYProgress: MotionValue<number>;
 }) {
-  const activePhase = useTransform(scrollYProgress, (v) => {
+  const activePhase = useTransform(scrollYProgress, (v): number => {
     if (v < 0.33) return 1;
     if (v < 0.66) return 2;
     return 3;
