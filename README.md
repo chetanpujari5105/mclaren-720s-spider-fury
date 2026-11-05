@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# McLaren 720S Spider "Fury" — Scroll Experience
 
-## Getting Started
+A cinematic product landing page for the McLaren 720S Spider, built with Next.js. A 240-frame image sequence of the car is scrubbed on a canvas as the user scrolls, followed by specs, features and a quote banner.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Scroll-scrubbed car animation**: `FuryScrollCanvas` draws frames from `public/images/fury-sequence/1.jpg … 240.jpg`, driven by Framer Motion's `useScroll` over a locked 600vh section.
+- **FuryExperience**: text overlays that animate in step with scroll progress.
+- **SpecsGrid**: performance specifications, from `src/data/carData.ts`
+- **Features** and **QuoteBanner** sections, plus a `Navbar` and `Footer`
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion, clsx, tailwind-merge
+
+## Project structure
+
+```
+src/app/          layout.tsx, page.tsx, globals.css
+src/components/   FuryScrollCanvas, FuryExperience, SpecsGrid, Features, ...
+src/data/         carData.ts
+public/images/fury-sequence/   240 animation frames
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Source design assets (repo root)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+These are the original materials used while designing the site. The site does not load them at runtime.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `ChatGPT Image May 9, 2026, 02_37_46 PM.png`: AI reference render
+- `Rotate_car_to_back_202605091450.mp4`, `f vif.mp4`: car-rotation videos the frame sequence was made from
+- `mclaren-720s-spider-5120x2880-17810.jpg`: 5K wallpaper
+- `Screenshot 2026-05-09 at 3.17.57 PM.png`: design screenshot
+- `docs/McLaren-720S-Spider-Fury-Build-Guide.pdf`: build guide for this site
 
-## Learn More
+> The local `ezgif-87d977c8c7b46072-jpg/` folder is git-ignored on purpose. Its 240 frames are byte-identical to `public/images/fury-sequence/` (only the file names differ), so they are already in this repository.
 
-To learn more about Next.js, take a look at the following resources:
+## Getting started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev       # http://localhost:3000
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No environment variables are required.

@@ -42,3 +42,25 @@ next-env.d.ts
 
 # Raw source frames
 ezgif-87d977c8c7b46072-jpg/
+
+# --- added during GitHub backup (safety rules) ---
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+.cache/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.p8
+*.jks
+*.keystore
+.claude/settings.local.json
